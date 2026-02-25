@@ -970,10 +970,122 @@ console.log("เลขคู่:", evenNumbers); // [2, 4]
 
 ### บันทึกผลการทดลอง 2.4.2
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>แบบทดสอบ 2.4.2 Arrow Function</title>
+</head>
+<body>
+
+<h2>แบบทดสอบ 2.4.2 : Arrow Function</h2>
+
+<!-- BMI -->
+<h3>1) คำนวณ BMI</h3>
+น้ำหนัก (กก.): <input type="number" id="weight"><br><br>
+ส่วนสูง (ซม.): <input type="number" id="height"><br><br>
+<button onclick="showBMI()">คำนวณ BMI</button>
+
+<hr>
+
+<!-- ทักทาย -->
+<h3>2) ทักทายตามอายุ</h3>
+ชื่อ: <input type="text" id="name"><br><br>
+อายุ: <input type="number" id="age"><br><br>
+<button onclick="greetUser()">ทักทาย</button>
+
+<hr>
+
+<!-- รหัสผ่าน -->
+<h3>3) ตรวจสอบรหัสผ่าน</h3>
+รหัสผ่าน: <input type="password" id="password"><br><br>
+<button onclick="checkPassword()">ตรวจสอบ</button>
+
+<hr>
+
+<h3>ผลลัพธ์</h3>
+<div id="output"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
+script.js
+
+// ฟังก์ชันแสดงผล
+const setOutput = (msg) => {
+    document.getElementById("output").innerHTML = msg;
+};
+
+// ===================================
+// 1) Arrow Function คำนวณ BMI
+// ===================================
+const calculateBMI = (weight, heightCm) => {
+    let heightM = heightCm / 100;
+    return weight / (heightM * heightM);
+};
+
+const showBMI = () => {
+
+    let weight = Number(document.getElementById("weight").value);
+    let height = Number(document.getElementById("height").value);
+
+    if (weight <= 0 || height <= 0) {
+        setOutput("กรุณากรอกข้อมูลให้ถูกต้อง");
+        return;
+    }
+
+    let bmi = calculateBMI(weight, height);
+
+    let status = "";
+    if (bmi < 18.5) status = "ผอม";
+    else if (bmi < 23) status = "ปกติ";
+    else if (bmi < 25) status = "ท้วม";
+    else if (bmi < 30) status = "อ้วน";
+    else status = "อ้วนมาก";
+
+    setOutput("BMI = " + bmi.toFixed(2) + "<br>สถานะ: <b>" + status + "</b>");
+};
+
+
+// ===================================
+// 2) Arrow Function ทักทายตามอายุ
+// ===================================
+const greeting = (name, age) => {
+    if (age <= 12) return "สวัสดีเด็กน้อย " + name;
+    else if (age <= 19) return "สวัสดีวัยรุ่น " + name;
+    else return "สวัสดีคุณ " + name;
+};
+
+const greetUser = () => {
+    let name = document.getElementById("name").value;
+    let age = Number(document.getElementById("age").value);
+
+    setOutput(greeting(name, age));
+};
+
+
+// ===================================
+// 3) Arrow Function ตรวจสอบรหัสผ่าน
+// ===================================
+const isValidPassword = (password) => password.length > 8;
+
+const checkPassword = () => {
+
+    let password = document.getElementById("password").value;
+
+    if (isValidPassword(password))
+        setOutput("รหัสผ่านถูกต้อง ✔️ (มากกว่า 8 ตัวอักษร)");
+    else
+        setOutput("รหัสผ่านสั้นเกินไป ❌");
+};
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 2.4.2](images/image.png)
+<img width="1918" height="996" alt="image" src="https://github.com/user-attachments/assets/cc1930f1-9e16-4bee-9559-e518ef033de3" />
+<img width="1918" height="999" alt="image" src="https://github.com/user-attachments/assets/f27c01bc-7731-4939-a18a-fe362c217d52" />
+<img width="1919" height="1007" alt="image" src="https://github.com/user-attachments/assets/f53bcf6b-a49d-4aee-a3de-13e437f06915" />
+<img width="1919" height="1004" alt="image" src="https://github.com/user-attachments/assets/dc63cffc-f166-4bda-b785-221decd3bf68" />
 
 
 ## การทดลองที่ 3 : การใช้ JavaScript กับ HTML และ CSS
