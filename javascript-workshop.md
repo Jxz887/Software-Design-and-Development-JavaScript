@@ -203,10 +203,86 @@ let person = {
 
 ### บันทึกผลการทดลอง 2.1
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>แบบทดสอบที่ 2.1</title>
+</head>
+<body>
+
+    <h2>แบบทดสอบที่ 2.1 การทดลองประกาศตัวแปร</h2>
+
+    <button onclick="showVariables()">แสดงข้อมูลตัวแปร</button>
+    <button onclick="showObject()">แสดงข้อมูล Object</button>
+
+    <hr>
+
+    <p id="output"></p>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+```script.js
+
+// =========================
+// ข้อ 1 : การประกาศตัวแปร
+// =========================
+
+// รหัสนักศึกษา (ค่าคงที่)
+const studentID = "68030329";
+
+// ชื่อนักศึกษา (สามารถแก้ไขได้)
+let studentName = "ก้องกิดาากร บุญยงค์";
+
+// คะแนนสอบ (เปลี่ยนแปลงได้)
+let midtermScore = 35;
+let finalScore = 42;
+
+
+// ฟังก์ชันแสดงข้อมูลตัวแปร
+function showVariables() {
+
+    let totalScore = midtermScore + finalScore;
+
+    document.getElementById("output").innerHTML =
+        "รหัสนักศึกษา: " + studentID + "<br>" +
+        "ชื่อนักศึกษา: " + studentName + "<br>" +
+        "คะแนนกลางภาค: " + midtermScore + "<br>" +
+        "คะแนนปลายภาค: " + finalScore + "<br>" +
+        "คะแนนรวม: " + totalScore;
+}
+
+
+// =========================
+// ข้อ 2 : การสร้าง Object
+// =========================
+
+const student = {
+    studentID: "68030329",
+    name: " ก้องกิดาากร บุญยงค์",
+    major: "เทคโนโลยีคอมพิวเตอร์",
+    gpa: 3.45
+};
+
+
+// ฟังก์ชันแสดงข้อมูล Object
+function showObject() {
+
+    document.getElementById("output").innerHTML =
+        "รหัสนักศึกษา: " + student.studentID + "<br>" +
+        "ชื่อ: " + student.name + "<br>" +
+        "สาขาวิชา: " + student.major + "<br>" +
+        "เกรดเฉลี่ย: " + student.gpa;
+}
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 2.1](images/image.png)
+<img width="1919" height="1011" alt="image" src="https://github.com/user-attachments/assets/2343654d-781d-4cd5-b147-0c20805a3c66" />
+<img width="1919" height="1010" alt="image" src="https://github.com/user-attachments/assets/b1ff2a5f-03d0-44e1-9812-31b05ece4880" />
+
+
 
 
 ### 2.2 การดำเนินการทางคณิตศาสตร์
