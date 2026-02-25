@@ -553,10 +553,142 @@ for (let i = 1; i <= 5; i++) {
 
 ### บันทึกผลการทดลอง 2.3
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>แบบทดสอบที่ 2.3 การควบคุมการทำงาน</title>
+</head>
+<body>
+
+  <h2>แบบทดสอบที่ 2.3 : การควบคุมการทำงาน</h2>
+
+  <!-- ข้อ 1 -->
+  <h3>ข้อ 1: ตรวจสอบเลขคู่/เลขคี่</h3>
+  <input type="number" id="numCheck" placeholder="ใส่ตัวเลข">
+  <button onclick="checkEvenOdd()">ตรวจสอบ</button>
+
+  <hr>
+
+  <!-- ข้อ 2 -->
+  <h3>ข้อ 2: สูตรคูณ แม่ 2 (for) และ แม่ 3 (while)</h3>
+  <button onclick="showMultiplication()">แสดงตารางสูตรคูณ</button>
+
+  <hr>
+
+  <!-- ข้อ 3 -->
+  <h3>ข้อ 3: นับถอยหลัง 10 ถึง 1</h3>
+  <button onclick="countdown()">เริ่มนับถอยหลัง</button>
+
+  <hr>
+
+  <!-- ข้อ 4 -->
+  <h3>ข้อ 4: ตรวจสอบช่วงวัยจากอายุ</h3>
+  <input type="number" id="ageInput" placeholder="ใส่อายุ">
+  <button onclick="checkAgeGroup()">ตรวจสอบช่วงวัย</button>
+
+  <hr>
+
+  <h3>ผลลัพธ์</h3>
+  <div id="output"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+script.js
+
+// ใช้แสดงผลในหน้าเว็บแบบง่าย
+function setOutput(html) {
+  document.getElementById("output").innerHTML = html;
+}
+
+// ===========================
+// ข้อ 1: เลขคู่หรือเลขคี่
+// ===========================
+function checkEvenOdd() {
+  let n = Number(document.getElementById("numCheck").value);
+
+  if (Number.isNaN(n)) {
+    setOutput("กรุณาใส่ตัวเลขก่อน");
+    return;
+  }
+
+  if (n % 2 === 0) {
+    setOutput("ตัวเลข " + n + " เป็น <b>เลขคู่</b>");
+  } else {
+    setOutput("ตัวเลข " + n + " เป็น <b>เลขคี่</b>");
+  }
+}
+
+// ================================================
+// ข้อ 2: for แสดงสูตรคูณแม่ 2 และ while แม่ 3
+// ================================================
+function showMultiplication() {
+  let result = "<b>ตารางสูตรคูณแม่ 2 (for loop)</b><br>";
+
+  // แม่ 2 ด้วย for
+  for (let i = 1; i <= 12; i++) {
+    result += "2 x " + i + " = " + (2 * i) + "<br>";
+  }
+
+  result += "<br><b>ตารางสูตรคูณแม่ 3 (while loop)</b><br>";
+
+  // แม่ 3 ด้วย while
+  let j = 1;
+  while (j <= 12) {
+    result += "3 x " + j + " = " + (3 * j) + "<br>";
+    j++;
+  }
+
+  setOutput(result);
+}
+
+// ===========================
+// ข้อ 3: นับถอยหลัง 10 ถึง 1
+// ===========================
+function countdown() {
+  let result = "<b>นับถอยหลัง</b><br>";
+
+  for (let i = 10; i >= 1; i--) {
+    result += i + "<br>";
+  }
+
+  setOutput(result);
+}
+
+// =====================================
+// ข้อ 4: ตรวจสอบช่วงวัยจากอายุ
+// (กำหนดช่วงวัยเองได้ตามโจทย์)
+// =====================================
+function checkAgeGroup() {
+  let age = Number(document.getElementById("ageInput").value);
+
+  if (Number.isNaN(age) || age < 0) {
+    setOutput("กรุณาใส่อายุให้ถูกต้อง");
+    return;
+  }
+
+  let group = "";
+
+  // กำหนดช่วงวัย (ปรับได้)
+  if (age <= 12) {
+    group = "วัยเด็ก";
+  } else if (age <= 19) {
+    group = "วัยรุ่น";
+  } else {
+    group = "วัยผู้ใหญ่";
+  }
+
+  setOutput("อายุ " + age + " ปี อยู่ในช่วง: <b>" + group + "</b>");
+}
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 2.3](images/image.png)
+<img width="1919" height="1008" alt="image" src="https://github.com/user-attachments/assets/74b51527-4a3c-4f3f-a8d4-93af9be2b6da" />
+<img width="1919" height="1011" alt="image" src="https://github.com/user-attachments/assets/0728d833-5045-4bb3-a3e6-82ed47d72656" />
+<img width="1919" height="1013" alt="image" src="https://github.com/user-attachments/assets/81d1dfce-aa91-4853-bea0-ef5a6aa80171" />
+<img width="1919" height="1015" alt="image" src="https://github.com/user-attachments/assets/1664172d-d958-4350-a485-51a0ff5767e3" />
+
 
 ### 2.4 Functions และ Arrow Functions
 
