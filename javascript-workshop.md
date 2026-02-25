@@ -334,10 +334,95 @@ number /= 2;          // เท่ากับ number = number / 2
 
 ### บันทึกผลการทดลอง 2.2
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>แบบทดสอบที่ 2.2 (กรอกข้อมูลเอง)</title>
+</head>
+<body>
+
+    <h2>แบบทดสอบที่ 2.2 การคำนวณพื้นฐาน</h2>
+
+    <!-- ===================== -->
+    <!-- ข้อ 1 : คะแนนเฉลี่ย -->
+    <!-- ===================== -->
+
+    <h3>คำนวณคะแนนเฉลี่ย 3 วิชา</h3>
+
+    วิชาที่ 1: <input type="number" id="sub1"><br><br>
+    วิชาที่ 2: <input type="number" id="sub2"><br><br>
+    วิชาที่ 3: <input type="number" id="sub3"><br><br>
+
+    <button onclick="calcAverage()">คำนวณคะแนนเฉลี่ย</button>
+
+    <hr>
+
+    <!-- ===================== -->
+    <!-- ข้อ 2 : คำนวณ VAT -->
+    <!-- ===================== -->
+
+    <h3>คำนวณราคาสินค้ารวม VAT 7%</h3>
+
+    ชื่อสินค้า: <input type="text" id="productName"><br><br>
+    ราคาสินค้า: <input type="number" id="price"><br><br>
+
+    <button onclick="calcVAT()">คำนวณ VAT</button>
+
+    <hr>
+
+    <p id="output"></p>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+script.js
+
+// ==========================
+// ข้อ 1 : คำนวณคะแนนเฉลี่ย
+// ==========================
+
+function calcAverage() {
+
+    let s1 = Number(document.getElementById("sub1").value);
+    let s2 = Number(document.getElementById("sub2").value);
+    let s3 = Number(document.getElementById("sub3").value);
+
+    let total = s1 + s2 + s3;
+    let average = total / 3;
+
+    document.getElementById("output").innerHTML =
+        "คะแนนรวม: " + total + "<br>" +
+        "คะแนนเฉลี่ย: " + average.toFixed(2);
+}
+
+
+// ==========================
+// ข้อ 2 : คำนวณ VAT 7%
+// ==========================
+
+function calcVAT() {
+
+    let name = document.getElementById("productName").value;
+    let price = Number(document.getElementById("price").value);
+
+    let vat = price * 0.07;
+    let netPrice = price + vat;
+
+    document.getElementById("output").innerHTML =
+        "ชื่อสินค้า: " + name + "<br>" +
+        "ราคาสินค้า: " + price.toFixed(2) + " บาท<br>" +
+        "VAT 7%: " + vat.toFixed(2) + " บาท<br>" +
+        "ราคาสุทธิ: " + netPrice.toFixed(2) + " บาท";
+}
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 2.2](images/image.png)
+<img width="1919" height="1008" alt="image" src="https://github.com/user-attachments/assets/cb78b3e6-1f2c-44da-82e7-9b8d05917a66" />
+<img width="1910" height="1015" alt="image" src="https://github.com/user-attachments/assets/61d1629d-e4be-4ff7-b079-109d57aabea9" />
+
+
 
 ### 2.3 การควบคุมการทำงาน
 
