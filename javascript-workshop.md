@@ -1153,10 +1153,66 @@ const checkPassword = () => {
 
 ### บันทึกผลการทดลอง 3.1
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>แบบทดสอบ 3.1 BMI</title>
+</head>
+<body>
+
+  <h2>แบบทดสอบ 3.1 : คำนวณ BMI (Arrow Function)</h2>
+
+  น้ำหนัก (กก.): <input type="number" id="weight"><br><br>
+  ส่วนสูง (ซม.): <input type="number" id="height"><br><br>
+
+  <button onclick="showBMI()">คำนวณ BMI</button>
+
+  <hr>
+  <p id="output_value"></p>
+
+  <script>
+    // Arrow function: คำนวณ BMI
+    const calculateBMI = (weight, heightCm) => {
+      const heightM = heightCm / 100;
+      return weight / (heightM * heightM);
+    };
+
+    // Arrow function: แปลผล BMI เป็น ผอม/สมส่วน/อ้วน
+    const bmiStatus = (bmi) => {
+      if (bmi < 18.5) return "ผอม";
+      else if (bmi < 25) return "สมส่วน";
+      else return "อ้วน";
+    };
+
+    // ฟังก์ชันเรียกจากปุ่ม (event onclick)
+    function showBMI() {
+      const weight = Number(document.getElementById("weight").value);
+      const height = Number(document.getElementById("height").value);
+
+      // ตรวจสอบค่าว่าง/ค่าผิด
+      if (weight <= 0 || height <= 0) {
+        document.getElementById("output_value").innerHTML =
+          "กรุณากรอกน้ำหนักและส่วนสูงให้ถูกต้อง";
+        return;
+      }
+
+      const bmi = calculateBMI(weight, height);
+      const status = bmiStatus(bmi);
+
+      document.getElementById("output_value").innerHTML =
+        "BMI = " + bmi.toFixed(2) + "<br>" +
+        "ผลลัพธ์: <b>" + status + "</b>";
+    }
+  </script>
+
+</body>
+</html>
+
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 3.1](images/image.png)
+<img width="1919" height="1011" alt="image" src="https://github.com/user-attachments/assets/6b8be3fb-a230-41bd-a2fa-b318fffca382" />
+
 
 ## การทดลองที่ 3.2 : การสร้างฟอร์มสำหรับจองห้องพัก
 การสร้างฟอร์มลงทะเบียนเพื่อรวบรวมข้อมูลที่จำเป็นสำหรับการจองห้องพัก
