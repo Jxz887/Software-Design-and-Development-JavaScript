@@ -76,10 +76,78 @@ JavaScript สามารถเพิ่มลงในเว็บเพจไ
    - มีปุ่มเมื่อคลิกแล้วจะแสดงข้อความที่กรอกในช่องข้อความ  (สามารถใช้ document.getElementById('id ของ textbox').value เพื่อดึงข้อมูลในช่อง)
 ### บันทึกผลการทดลอง 
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ทดลอง JavaScript</title>
+</head>
+<body>
+
+    <h2>แบบฝึก JavaScript เบื้องต้น</h2>
+
+    <!-- ปุ่มที่ 1 : Inline JavaScript -->
+    <button onclick="alert('ชื่อ: ก้องกิดากร บุญยงค์')">
+        ปุ่มที่ 1 : แสดงชื่อนักศึกษา
+    </button>
+
+    <br><br>
+
+    <!-- ปุ่มที่ 2 : Internal JavaScript -->
+    <button id="btn2">
+        ปุ่มที่ 2 : แสดงวันที่ปัจจุบัน
+    </button>
+
+    <br><br>
+
+    <!-- ปุ่มที่ 3 : External JavaScript -->
+    <button onclick="showTime()">
+        ปุ่มที่ 3 : แสดงเวลาปัจจุบัน
+    </button>
+
+    <hr>
+
+    <h3>ทดสอบรับค่าจาก Textbox</h3>
+
+    <input type="text" id="myText" placeholder="พิมพ์ข้อความที่นี่">
+    <button onclick="showMessage()">แสดงข้อความ</button>
+
+    <p id="result"></p>
+
+    <!-- Internal JavaScript -->
+    <script>
+        // ปุ่มที่ 2 แสดงวันที่ปัจจุบัน
+        document.getElementById("btn2").onclick = function() {
+            let today = new Date();
+            alert("วันนี้คือ: " + today.toLocaleDateString());
+        };
+    </script>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
+script.js
+// ปุ่มที่ 3 : แสดงเวลาปัจจุบัน
+function showTime() {
+    let now = new Date();
+    alert("เวลาปัจจุบัน: " + now.toLocaleTimeString());
+}
+
+// แสดงข้อความจาก textbox
+function showMessage() {
+    let text = document.getElementById("myText").value;
+    document.getElementById("result").innerHTML = "ข้อความที่คุณพิมพ์: " + text;
+}
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 1](images/image.png)
+<img width="1919" height="1015" alt="image" src="https://github.com/user-attachments/assets/b66ed285-1fb1-442a-9807-53325bd6a4a4" />
+<img width="1919" height="1006" alt="image" src="https://github.com/user-attachments/assets/1ac3f050-0053-47a0-801a-fd48c8da5eff" />
+<img width="1919" height="1009" alt="image" src="https://github.com/user-attachments/assets/295eaa81-330b-435e-bd92-641e2f9b6666" />
+
+
+
 
 ## การทดลองที่ 2: พื้นฐาน JavaScript
 ### 2.1 การประกาศตัวแปรและชนิดข้อมูล
