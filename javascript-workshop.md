@@ -140,6 +140,13 @@ function showMessage() {
     let text = document.getElementById("myText").value;
     document.getElementById("result").innerHTML = "ข้อความที่คุณพิมพ์: " + text;
 }
+Inline: เขียน JS ใน onclick โดยตรง
+
+Internal: เขียนใน <script> ในหน้าเดียว
+
+External: แยกไปไฟล์ script.js
+
+Textbox: ใช้ .value ดึงค่าจาก input แล้วแสดงด้วย innerHTML
 ```
 **รูปผลการทดลอง**
 <img width="1919" height="1015" alt="image" src="https://github.com/user-attachments/assets/b66ed285-1fb1-442a-9807-53325bd6a4a4" />
@@ -277,6 +284,11 @@ function showObject() {
         "สาขาวิชา: " + student.major + "<br>" +
         "เกรดเฉลี่ย: " + student.gpa;
 }
+ใช้ const กับค่าที่ไม่ควรเปลี่ยน (รหัส)
+
+ใช้ let กับค่าที่อาจเปลี่ยน (ชื่อ/คะแนน)
+
+ใช้ Object รวมข้อมูลนักศึกษาเป็นชุดเดียว เรียกผ่าน student.xxx
 ```
 **รูปผลการทดลอง**
 <img width="1919" height="1011" alt="image" src="https://github.com/user-attachments/assets/2343654d-781d-4cd5-b147-0c20805a3c66" />
@@ -417,6 +429,13 @@ function calcVAT() {
         "VAT 7%: " + vat.toFixed(2) + " บาท<br>" +
         "ราคาสุทธิ: " + netPrice.toFixed(2) + " บาท";
 }
+รับค่าจาก input แล้วแปลงเป็นตัวเลขด้วย Number()
+
+คะแนนเฉลี่ย = (รวม)/3
+
+VAT = ราคา×0.07 และ สุทธิ = ราคา+VAT
+
+ใช้ .toFixed(2) ทำให้ทศนิยม 2 ตำแหน่ง
 ```
 **รูปผลการทดลอง**
 <img width="1919" height="1008" alt="image" src="https://github.com/user-attachments/assets/cb78b3e6-1f2c-44da-82e7-9b8d05917a66" />
@@ -682,6 +701,13 @@ function checkAgeGroup() {
 
   setOutput("อายุ " + age + " ปี อยู่ในช่วง: <b>" + group + "</b>");
 }
+คู่/คี่ใช้ n % 2
+
+สูตรคูณ: แม่2 ใช้ for, แม่3 ใช้ while
+
+นับถอยหลังใช้ for จาก 10 ลง 1
+
+ช่วงวัยใช้ if/else (ในนี้ย่อด้วย ternary)
 ```
 **รูปผลการทดลอง**
 <img width="1919" height="1008" alt="image" src="https://github.com/user-attachments/assets/74b51527-4a3c-4f3f-a8d4-93af9be2b6da" />
@@ -926,6 +952,13 @@ function checkPassword() {
         setOutput("รหัสผ่านสั้นเกินไป ❌ ต้องมากกว่า 8 ตัวอักษร");
     }
 }
+แยกฟังก์ชันคำนวณ/ตรวจสอบออกจากฟังก์ชันแสดงผล ทำให้แก้ง่าย
+
+BMI ใช้สูตร weight / height(m)^2
+
+ทักทายเลือกข้อความจากช่วงอายุ
+
+รหัสผ่านตรวจ length > 8
 ```
 **รูปผลการทดลอง**
 <img width="1919" height="1012" alt="image" src="https://github.com/user-attachments/assets/b2e490ea-661c-477f-8c95-77b6320756dc" />
@@ -1080,6 +1113,9 @@ const checkPassword = () => {
     else
         setOutput("รหัสผ่านสั้นเกินไป ❌");
 };
+เปลี่ยน function name(){} เป็น const name = () => {}
+
+หลักการคำนวณ/ตรวจสอบเหมือนเดิม แต่เขียนสั้นและนิยมใช้ใน ES6+
 ```
 **รูปผลการทดลอง**
 <img width="1918" height="996" alt="image" src="https://github.com/user-attachments/assets/cc1930f1-9e16-4bee-9559-e518ef033de3" />
@@ -1208,7 +1244,11 @@ const checkPassword = () => {
 
 </body>
 </html>
+ใช้ onclick เรียก showBMI()
 
+calculateBMI และ bmiStatus เป็น Arrow Function ตามโจทย์
+
+แสดงผลใน <p> ด้วย innerHTML
 ```
 **รูปผลการทดลอง**
 <img width="1919" height="1011" alt="image" src="https://github.com/user-attachments/assets/6b8be3fb-a230-41bd-a2fa-b318fffca382" />
@@ -1513,6 +1553,11 @@ const checkPassword = () => {
 
 </body>
 </html>
+CSS: จัดกึ่งกลาง + ใส่เงา + hover/focus + รองรับมือถือ
+
+JS submit: กันส่งฟอร์ม, ตรวจวัน/เบอร์โทร, คำนวณวันพัก, สรุปก่อน confirm, reset หลังสำเร็จ
+
+JS real-time: ตั้ง checkout.min และปรับ guests.max ตามประเภทห้อง
 ```
 **รูปผลการทดลอง**
 <img width="1919" height="1016" alt="image" src="https://github.com/user-attachments/assets/fabafafd-f639-4344-aa94-910c4fc38e65" />
@@ -1621,10 +1666,215 @@ const checkPassword = () => {
 
 ### บันทึกผลการทดลอง 3.2.3
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ระบบจองห้องพักออนไลน์</title>
+
+  <style>
+    body {
+      font-family: 'Sarabun', sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    form {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    div {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #34495e;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 5px rgba(52,152,219,0.3);
+    }
+
+    button {
+      background-color: #2980b9;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #3498db;
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 10px; }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>แบบฟอร์มจองห้องพัก</h1>
+
+  <form id="bookingForm">
+    <div>
+      <label for="fullname">ชื่อ-นามสกุล:</label>
+      <input type="text" id="fullname" name="fullname" required>
+    </div>
+
+    <div>
+      <label for="email">อีเมล:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+
+    <div>
+      <label for="phone">เบอร์โทรศัพท์:</label>
+      <input type="tel" id="phone" name="phone" required>
+    </div>
+
+    <div>
+      <label for="checkin">วันที่เช็คอิน:</label>
+      <input type="date" id="checkin" name="checkin" required>
+    </div>
+
+    <div>
+      <label for="checkout">วันที่เช็คเอาท์:</label>
+      <input type="date" id="checkout" name="checkout" required>
+    </div>
+
+    <div>
+      <label for="roomtype">ประเภทห้องพัก:</label>
+      <select id="roomtype" name="roomtype" required>
+        <option value="">กรุณาเลือกประเภทห้องพัก</option>
+        <option value="standard">ห้องมาตรฐาน</option>
+        <option value="deluxe">ห้องดีลักซ์</option>
+        <option value="suite">ห้องสวีท</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="guests">จำนวนผู้เข้าพัก:</label>
+      <input type="number" id="guests" name="guests" min="1" max="4" required>
+    </div>
+
+    <button type="submit">จองห้องพัก</button>
+  </form>
+
+  <script>
+    // 1) กด submit แล้วตรวจข้อมูลก่อนส่ง
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // ----- ตรวจสอบวันที่ -----
+      const checkin = new Date(document.getElementById('checkin').value);
+      const checkout = new Date(document.getElementById('checkout').value);
+
+      // ตัดเวลาออกเพื่อเทียบเฉพาะ "วัน" (กันปัญหาเลือกวันนี้แล้วโดนมองว่าเป็นอดีต)
+      const today = new Date();
+      today.setHours(0,0,0,0);
+      checkin.setHours(0,0,0,0);
+      checkout.setHours(0,0,0,0);
+
+      if (checkin < today) {
+        alert('กรุณาเลือกวันเช็คอินที่ยังไม่ผ่านมา');
+        return;
+      }
+
+      if (checkout <= checkin) {
+        alert('วันเช็คเอาท์ต้องมาหลังวันเช็คอิน');
+        return;
+      }
+
+      // ----- ตรวจสอบเบอร์โทร 10 หลัก -----
+      const phone = document.getElementById('phone').value.trim();
+      const phoneRegex = /^[0-9]{10}$/;
+      if (!phoneRegex.test(phone)) {
+        alert('กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง (10 หลัก)');
+        return;
+      }
+
+      // ----- คำนวณจำนวนวันที่พัก -----
+      const days = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
+
+      // ----- สรุปการจองก่อนยืนยัน -----
+      const roomtype = document.getElementById('roomtype');
+      const roomtypeText = roomtype.options[roomtype.selectedIndex].text;
+
+      const summary =
+        "สรุปการจอง:\n" +
+        "- ชื่อผู้จอง: " + document.getElementById('fullname').value + "\n" +
+        "- ประเภทห้อง: " + roomtypeText + "\n" +
+        "- วันที่เข้าพัก: " + checkin.toLocaleDateString('th-TH') + "\n" +
+        "- วันที่ออก: " + checkout.toLocaleDateString('th-TH') + "\n" +
+        "- จำนวนวันที่พัก: " + days + " วัน\n" +
+        "- จำนวนผู้เข้าพัก: " + document.getElementById('guests').value + " ท่าน";
+
+      if (confirm(summary + "\n\nยืนยันการจองห้องพัก?")) {
+        alert('จองห้องพักเรียบร้อยแล้ว');
+        this.reset();
+      }
+    });
+
+    // 2) Real-time: เลือก checkin แล้วบังคับ checkout ให้เลือกวันก่อนหน้าไม่ได้
+    document.getElementById('checkin').addEventListener('change', function() {
+      document.getElementById('checkout').min = this.value;
+    });
+
+    // 3) จำกัดจำนวนผู้เข้าพักตามประเภทห้อง + ปรับค่าให้ไม่เกิน max
+    document.getElementById('roomtype').addEventListener('change', function() {
+      const guestsInput = document.getElementById('guests');
+
+      if (this.value === 'standard') guestsInput.max = 2;
+      else if (this.value === 'deluxe') guestsInput.max = 3;
+      else if (this.value === 'suite') guestsInput.max = 4;
+      else guestsInput.max = 4;
+
+      if (Number(guestsInput.value) > Number(guestsInput.max)) {
+        guestsInput.value = guestsInput.max;
+      }
+    });
+  </script>
+</body>
+</html>
+CSS: จัดฟอร์มให้อยู่กลางหน้า (max-width + margin: auto), ใส่เงา (box-shadow), ทำ hover/focus และ responsive ด้วย @media
+
+JS (submit): preventDefault() แล้วตรวจ วันที่ (เช็คอินต้องไม่ย้อนหลัง / เช็คเอาท์ต้องหลังเช็คอิน), ตรวจ เบอร์โทร 10 หลัก ด้วย Regex, คำนวณ จำนวนวันที่พัก, แสดง สรุปการจอง ให้กดยืนยัน แล้ว reset()
+
+JS (real-time): เปลี่ยน check-in แล้วตั้ง checkout.min ให้เลือกวันก่อนหน้าไม่ได้ + เปลี่ยนประเภทห้องแล้วปรับ guests.max ตามประเภทห้อง
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 3.2.3](images/image.png)
+<img width="1914" height="1070" alt="image" src="https://github.com/user-attachments/assets/618a0b9f-19b8-408e-bb81-0d5231053062" />
+<img width="1919" height="1000" alt="image" src="https://github.com/user-attachments/assets/8b5d2f3a-ab90-453f-b2a7-e08267a9b549" />
+<img width="1919" height="1004" alt="image" src="https://github.com/user-attachments/assets/957126b8-13ed-4317-8340-38c82c3100ca" />
+
 
 
 ## คำแนะนำเพิ่มเติม
