@@ -800,12 +800,138 @@ process(function() {
 
 ### บันทึกผลการทดลอง 2.4.1
 ```html
-[บันทึกโค้ด ที่นี่]
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>แบบทดสอบที่ 2.4.1 Functions</title>
+</head>
+<body>
+
+<h2>แบบทดสอบที่ 2.4.1 : Functions</h2>
+
+<!-- =================== ข้อ 1 BMI =================== -->
+<h3>1) คำนวณค่า BMI</h3>
+น้ำหนัก (กก.): <input type="number" id="weight"><br><br>
+ส่วนสูง (ซม.): <input type="number" id="height"><br><br>
+<button onclick="showBMI()">คำนวณ BMI</button>
+
+<hr>
+
+<!-- =================== ข้อ 2 ทักทาย =================== -->
+<h3>2) ทักทายตามอายุ</h3>
+ชื่อ: <input type="text" id="name"><br><br>
+อายุ: <input type="number" id="age"><br><br>
+<button onclick="greetUser()">ทักทาย</button>
+
+<hr>
+
+<!-- =================== ข้อ 3 รหัสผ่าน =================== -->
+<h3>3) ตรวจสอบความยาวรหัสผ่าน</h3>
+รหัสผ่าน: <input type="password" id="password"><br><br>
+<button onclick="checkPassword()">ตรวจสอบรหัสผ่าน</button>
+
+<hr>
+
+<h3>ผลลัพธ์</h3>
+<div id="output"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
+script.js
+
+// ฟังก์ชันช่วยแสดงผล
+function setOutput(text) {
+    document.getElementById("output").innerHTML = text;
+}
+
+// =========================
+// ข้อ 1 : ฟังก์ชันคำนวณ BMI
+// =========================
+function calculateBMI(weight, heightCm) {
+
+    let heightM = heightCm / 100;   // แปลง cm → m
+    let bmi = weight / (heightM * heightM);
+
+    return bmi;
+}
+
+function showBMI() {
+
+    let weight = Number(document.getElementById("weight").value);
+    let height = Number(document.getElementById("height").value);
+
+    if (weight <= 0 || height <= 0) {
+        setOutput("กรุณากรอกข้อมูลให้ถูกต้อง");
+        return;
+    }
+
+    let bmi = calculateBMI(weight, height);
+
+    // แปลผล BMI
+    let status = "";
+    if (bmi < 18.5) status = "ผอม";
+    else if (bmi < 23) status = "ปกติ";
+    else if (bmi < 25) status = "ท้วม";
+    else if (bmi < 30) status = "อ้วน";
+    else status = "อ้วนมาก";
+
+    setOutput("ค่า BMI = " + bmi.toFixed(2) + "<br>สถานะ: <b>" + status + "</b>");
+}
+
+
+// =========================
+// ข้อ 2 : ทักทายตามอายุ
+// =========================
+function greeting(name, age) {
+
+    if (age <= 12) {
+        return "สวัสดีเด็กน้อย " + name;
+    }
+    else if (age <= 19) {
+        return "สวัสดีวัยรุ่น " + name;
+    }
+    else {
+        return "สวัสดีคุณ " + name;
+    }
+}
+
+function greetUser() {
+
+    let name = document.getElementById("name").value;
+    let age = Number(document.getElementById("age").value);
+
+    let message = greeting(name, age);
+    setOutput(message);
+}
+
+
+// =========================
+// ข้อ 3 : ตรวจสอบรหัสผ่าน
+// =========================
+function isValidPassword(password) {
+    return password.length > 8;
+}
+
+function checkPassword() {
+
+    let password = document.getElementById("password").value;
+
+    if (isValidPassword(password)) {
+        setOutput("รหัสผ่านปลอดภัย (ยาวมากกว่า 8 ตัวอักษร) ✔️");
+    } else {
+        setOutput("รหัสผ่านสั้นเกินไป ❌ ต้องมากกว่า 8 ตัวอักษร");
+    }
+}
 ```
 **รูปผลการทดลอง**
-![รูปผลการทดลองที่ 2.4.1](images/image.png)
-
-
+<img width="1919" height="1012" alt="image" src="https://github.com/user-attachments/assets/b2e490ea-661c-477f-8c95-77b6320756dc" />
+<img width="1919" height="996" alt="image" src="https://github.com/user-attachments/assets/8c8cc1a6-5002-49b4-b30d-891ef01c0a1f" />
+<img width="1919" height="1003" alt="image" src="https://github.com/user-attachments/assets/a0fb66a3-c801-4c94-882e-0f06a07ed3f1" />
+<img width="1919" height="1003" alt="image" src="https://github.com/user-attachments/assets/000d182d-c091-4080-bee1-15a90c942df2" />
 
 #### 2.4.2 Arrow Function
 Arrow Function เป็นวิธีการเขียน function แบบสั้นๆ ที่มาพร้อมกับ JavaScript เวอร์ชัน ES6
